@@ -5,14 +5,7 @@ from tkinter import Toplevel, ttk, messagebox
 import tkinter as tk
 
 
-# GitHub repo details
-USERNAME = "Devansh-14971"
-REPO_NAME = "App_SHVR"
-FOLDER_PATH = "Sample_images"
-GITHUB_API_URL = f"https://api.github.com/repos/{USERNAME}/{REPO_NAME}/contents/{FOLDER_PATH}"
-"""
-Save this info in .config after we switch to Google's API
-"""
+
 
 class Downloader:
     # Destination folder to save images
