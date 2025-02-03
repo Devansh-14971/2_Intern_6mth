@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk
 from download_window import DownloadWindow
 from process_files import ProcessFiles
+import config_
 
 
 def center_window(window, width, height):
@@ -13,6 +14,8 @@ def center_window(window, width, height):
     y = (screen_height // 2) - (height // 2)
     window.geometry(f"{width}x{height}+{x}+{y}")
 
+
+config = config_.config_()
 
 root = tk.Tk()
 root.title("Main Application")
@@ -40,7 +43,7 @@ notebook.add(download_frame, text="Download")
 notebook.add(process_frame, text="Process Files")
 
 # Initialize modules
-download_window = DownloadWindow(download_frame)
-ProcessFiles(process_frame, download_window, notebook)
+download_window = DownloadWindow(download_frame, config)
+ProcessFiles(process_frame, download_window, notebook, config)
 
 root.mainloop()
