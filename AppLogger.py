@@ -1,12 +1,11 @@
 import configparser
-import config_
 from pytz import timezone
 from pathlib import Path
 import json
 import logging
 from logging.handlers import RotatingFileHandler
-from utils import show_error, current_w_folder
 from datetime import datetime
+import os
 
 
 class Logger:
@@ -18,7 +17,7 @@ class Logger:
         self.config_file = Path("config_.ini")
         parser = configparser.ConfigParser()
         # Read the log file path from the config file
-        self.log_path = current_w_folder() / "app_logs.json" # But what to do if there is no config file yet??? name the file app_logs.json
+        self.log_path = Path(os.getcwd()) / "app_logs.json" # But what to do if there is no config file yet??? name the file app_logs.json
         self.log_path = Path(self.log_path)
 
         # Ensure the log file exists
@@ -51,6 +50,8 @@ class Logger:
             info (str): The log message.
             status (str): The severity level of the log (INFO, ERROR, etc.).
         """
+        from utils import show_error
+        
         log_message = {
             "timestamp": datetime.now(timezone('Asia/Kolkata')).strftime("%Y-%m-%d %H:%M:%S"),
             "level": status,

@@ -1,10 +1,11 @@
 from tkinter import messagebox
 from pathlib import Path
-from AppLogger import Logger
+
 import os
 
 # Configure logger for utility functions
-logger = Logger(__name__)
+import AppLogger
+logger = AppLogger.Logger(__name__)
 
 def current_w_folder():
     return Path(os.getcwd())

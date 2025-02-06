@@ -1,6 +1,6 @@
 import configparser
 from pathlib import Path
-from AppLogger import Logger
+import AppLogger
 from utils import current_w_folder
 
 
@@ -11,7 +11,7 @@ class Config:
         Sets up a Logger for logging configuration issues.
         """
         self.config_file = Path("config_.ini")
-        self.logger = Logger(__name__)
+        self.logger = AppLogger.Logger(__name__)
         self.parser = configparser.ConfigParser()
 
         # Read the config file if it exists or create a default one if missing

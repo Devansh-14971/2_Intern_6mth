@@ -1,4 +1,7 @@
 # main_app.py
+import AppLogger
+logger = AppLogger.Logger(__name__)
+
 
 import tkinter as tk
 from tkinter import ttk

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
-from AppLogger import Logger
+import AppLogger
 from Downloader import Downloader
 
 
@@ -14,7 +14,7 @@ class DownloadWindow:
     def __init__(self, destination_folder: Path, parent_frame):
         self.destination_folder = destination_folder
         self.parent_frame = parent_frame
-        self.logger = Logger(__name__)
+        self.logger = AppLogger.Logger(__name__)
         self.downloader = Downloader(self.destination_folder, self.logger)  # Use the Downloader class
         self.create_ui()
 
